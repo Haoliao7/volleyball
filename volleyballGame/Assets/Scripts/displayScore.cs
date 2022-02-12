@@ -13,8 +13,6 @@ public class displayScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.GetComponent<Text>().text = ("Score : "+GameManager.score.ToString());
-
-
+        gameObject.GetComponent<Text>().text = ("Score : "+GameManager.score.ToString());//display the score
     }
 }

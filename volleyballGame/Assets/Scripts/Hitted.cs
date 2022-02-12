@@ -28,9 +28,9 @@ public class Hitted : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && (transform.position.y < upEdge && transform.position.y > downEdge) && (transform.position.x < leftEdge && transform.position.x >  rightEdge))
-        {
-            rb.velocity = Vector3.zero;
-            rb.AddForce((transform.position - hittingPoint) * power);
+        {//if press space and the ball is in the right range of position
+            rb.velocity = Vector3.zero; // set the velocity of the ball to 0
+            rb.AddForce((transform.position - hittingPoint) * power); //addforce from the hitting point to the ball
             hitted = true;
 
         }

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static int highScore;
     public static int score;
 
+
     //singleton pattern, set a variable of the type GameManager and call it instance
     private static GameManager instance;
 
