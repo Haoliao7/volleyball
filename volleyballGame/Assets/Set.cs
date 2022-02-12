@@ -12,6 +12,11 @@ public class Set : MonoBehaviour
 
     bool inside = false;
 
+
+    public GameObject InText;
+    public GameObject OutText;
+    public GameObject MissText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +45,12 @@ public class Set : MonoBehaviour
     {
         if (collision.gameObject.name == "Court")
         {
+            InText.SetActive(true);
             GameManager.score++;
+            if (GameManager.highScore < GameManager.score)
+            {
+                GameManager.highScore = GameManager.score;
+            }
             inside = true;
         }
     }
@@ -51,12 +61,35 @@ public class Set : MonoBehaviour
         transform.position = startingPoint;
         SetTheBall();
 
+        
+
         if(inside == false)
         {
             GameManager.score = 0;
         }
+        if(Hitted.hitted == false)
+        {
+            MissText.SetActive(true);
+        }
+        else
+        {
+            if (inside == false)
+            {
+                OutText.SetActive(true);
+            }
+        }
 
         inside = false;
+        Hitted.hitted = false;
+        Invoke("CancelText", 0.25f);
+
+    }
+
+    void CancelText()
+    {
+        InText.SetActive(false);
+        OutText.SetActive(false);
+        MissText.SetActive(false);
     }
 
 }

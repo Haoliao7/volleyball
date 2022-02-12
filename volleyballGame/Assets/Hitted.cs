@@ -16,6 +16,8 @@ public class Hitted : MonoBehaviour
     public float rightEdge;
     public float downEdge;
 
+    public static bool hitted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,7 @@ public class Hitted : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             rb.AddForce((transform.position - hittingPoint) * power);
-
+            hitted = true;
 
         }
         
